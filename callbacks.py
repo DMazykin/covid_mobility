@@ -40,10 +40,10 @@ def update_map(country):
             dbc.CardBody([
                 html.H4("Covid-19", className="card-title"),
                 html.Hr(),
-                html.P([f"Number of cases: {country_info.Confirmed[0]:,d}"], className="card-subtitle h6 mb-3"),
-                html.P([f"Deaths: {country_info.Deaths[0]:,d}"], className="card-subtitle h6 mb-3"),
-                html.P([f"Recovered: {country_info.Recovered[0]:,d}"], className="card-subtitle h6 mb-3"),
-                html.P([f"Active: {country_info.Active[0]:,d}"], className="card-subtitle h6 mb-3"),
+                html.P([f"Number of cases: {int(country_info.Confirmed[0]):,d}"], className="card-subtitle h6 mb-3"),
+                html.P([f"Deaths: {int(country_info.Deaths[0]):,d}"], className="card-subtitle h6 mb-3"),
+                html.P([f"Recovered: {int(country_info.Recovered[0]):,d}"], className="card-subtitle h6 mb-3"),
+                html.P([f"Active: {int(country_info.Active[0]):,d}"], className="card-subtitle h6 mb-3"),
                 html.P([f"Incident Rate: {country_info.Incident_Rate[0]/100:.2%}"], className="card-subtitle h6 mb-3"),
                 html.P([f"Mortality Rate: {country_info.Mortality_Rate[0]/100:.2%}"], className="card-subtitle h6 mb-3"),
 
@@ -81,7 +81,7 @@ def update_mobility(country):
         )
 
         fig.add_trace(
-            go.Scatter(x=df.date, y=df.transit_stations_percent_change_from_baseline         , 
+            go.Scatter(x=df.date, y=df.transit_stations_percent_change_from_baseline, 
                         name='Transit stations percent change',
                         mode='lines')
         )

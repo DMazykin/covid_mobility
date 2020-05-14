@@ -12,7 +12,7 @@ df_mobility.country_region_code = df_mobility.country_region_code.map(iso3) #ISO
 
 
 df_cases_country = pd.read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_country.csv").set_index('ISO3', drop=False)
-df_cases_country = df_cases_country[df_cases_country.index.isin(df_mobility.country_region_code.unique())]
+df_cases_country = df_cases_country[df_cases_country.index.isin(df_mobility.country_region_code.dropna().unique())]
 
 df_mobility = df_mobility[pd.isna(df_mobility.sub_region_1)].set_index('country_region_code', drop=False)
 

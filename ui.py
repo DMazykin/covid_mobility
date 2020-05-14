@@ -20,9 +20,10 @@ page_layout = dbc.Container([
     dbc.Row([
         dbc.Col([
             dbc.Container([
-                dbc.Select(
+                dcc.Dropdown(
                     id="selected_country",
                     options=data.country_list,
+                    multi=False,
                 ),
                 html.Div(id='card', style={'margin-top': '1rem'})
             ],
